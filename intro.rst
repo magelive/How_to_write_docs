@@ -38,12 +38,16 @@ Doxygen 支持的代码处理语言包含：c/c++、Java、Python、Object-C、C
 
 markdown简介
 --------------
-
-
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。
+Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。
+Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。
+Markdown 编写的文档后缀为 .md, .markdown。
 
 plantuml简介
 -----------------
+PlantUML 可以帮助您使用简单易读的文本描述来绘制UML图， 它是一个开源项目。它支持快速绘制各种UML图：时序图、用例图、类图、活动图、组件图、状态图、对象图、部署图、定时图，同时还支持以下非UML图：Network、线框图形界面、架构图、规范和描述语言 (SDL)、Ditaa diagram、甘特图、思维导图、Work Breakdown Structure diagram、以 AsciiMath 或 JLaTeXMath 符号的数学公式、Entity Relationship diagramt等。
 
+PlantUML通过简单直观的语言来定义这些示意图。
 
 reStructuredText文件简介
 ----------------------------
@@ -51,7 +55,6 @@ reStructuredText文件简介
 reStructuredText是一种reStructuredText是一种轻量级的文本标记语言，简单易读，所见即所得的文本标记语言。
 
 其一般保存的文件以.rst为后缀。在必要的时候，.rst文件可以被转化成PDF或者HTML格式，也可以有Sphinx转化为LaTex,man等格式，现在被广泛的用于程序的文档撰写。
-
 
 
 相应工具安装
@@ -165,17 +168,56 @@ installation from source
 """""""""""""""""""""""""
 ::
     
-    $git clone https://github.com/doxygen/doxygen.git
-    $cd doxygen 
+    $ git clone https://github.com/doxygen/doxygen.git
+    $ cd doxygen 
     $ mkdir build
     $ cd build
     $ cmake -G "Unix Makefiles" ..
     $ make && make install
 
-
-sphinx markdown插件安装
+sphinx 插件安装
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+breathe
+"""""""""""""
+该插件主要是协助sphinx读取doxygen中生成的xml，其官方定义如下：
+This is an extension to reStructuredText and Sphinx to be able to read and render the Doxygen xml output.
+
+::
+    
+    $ pip3 install breathe
+
+sphinxcontrib-plantuml
+""""""""""""""""""""""""
+该插件主要是协助sphinx使用plantuml绘制UML图。
+
+::
+    
+    $ pip3 install sphinxcontrib-plantuml
+
+sphinxcontrib-markdown
+"""""""""""""""""""""""""
+该插件主要协助sphinx解析markdown文件
+
+::
+
+    $ pip3 install sphinxcontrib-markdown 
+
+
+在sphinxcontrib中还有另一个markdown相关的插件recommonmark和sphinx-markdown-tables
+
+::
+    
+    $ pip3 install recommonmark
+    $ pip3 install sphinx-markdown-tables
+
+sphinx 主题安装
+"""""""""""""""""""""""""""
+::
+
+    pip install sphinx_rtd_theme
+
+更多sphinx主题可看：https://sphinx-themes.org/
 
 plantuml 和 Graphviz 安装
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,6 +225,12 @@ plantuml 和 Graphviz 安装
 Graphviz 是一个由AT&T实验室启动的开源工具包，用于绘制DOT语言脚本描述的图形。
 Plantuml 和 Doxygen 均使用 graphviz 自动生成类之间和文件之间的调用关系图，如不需要此功能可不安装该工具包。
 
+plantuml是基于java实现的，因此我们可以直接获取其Jar包：http://sourceforge.net/projects/plantuml/files/plantuml.1.2020.5.jar/download
 
+Graphviz安装方式可查看其官网 https://www.graphviz.org/download/
+
+.. note::
+    
+    需要注意的是plantuml在官网中说道，plantuml使用Graphviz 2.39和2.40无法很好的工作，因此推荐使用Graphviz 2.38版本。
 
 

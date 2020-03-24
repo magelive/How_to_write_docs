@@ -15,8 +15,8 @@ int test_add(int a, int b);
 /**
  * test_sub() - Subtraction calculation
  *
- * @param[in] a subtractor
- * @param[in] b minuend
+ * @param a subtractor
+ * @param b minuend
  * 
  * @return The subtraction result
  *

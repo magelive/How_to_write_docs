@@ -11,6 +11,8 @@ Welcome to How_to_write_docs's documentation!
    :caption: Contents:
     
    intro
+   usage
+   reference
 
 
 Indices and tables
