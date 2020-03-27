@@ -31,6 +31,7 @@ release = 'v1.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+        'sphinx.ext.mathjax',
         'sphinx.ext.napoleon',
         'sphinx.ext.autodoc',
         'breathe',
@@ -71,4 +72,5 @@ html_static_path = ['_static']
 breathe_projects = {"Test": "./_build/xml"}
 breathe_default_project = "Test"
 breathe_domain_by_extension = {"h" : "c"}
+
 

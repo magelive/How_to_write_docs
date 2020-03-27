@@ -386,24 +386,140 @@ True   True   True
 图片
 ^^^^^^^^^^^^
 
-使用 image 指令. 开头两个点, 空一格, 输入 image, 然后连用两个冒号 :: 再空一格, 输入到图片的路径, 可以使用相对路径或绝对路径, 相对路径是相对于文档文件的. 可以在下面添加属性, 所有属性和 HTML 中的图片属性是一样的.
+使用 ``image`` 指令. 开头两个点, 空一格, 输入 ``image`` , 然后连用两个冒号 :: 再空一格, 输入到图片地址, 图片地址可以使用相对路径或绝对路径, 相对路径是相对于文档文件的。另外可在 ``image`` 下面添加属性, 所有属性和 HTML 中的图片属性是一样的。
 
+sphinx中 ``image`` 指令使用方法如下：
 
-脚注
+::
+    
+    .. image:: 文件地址
+        (options)
+
+使用本地文件时，Sphinx将会自动将图像文件拷贝到输出目录中，文件地址若是URL时，会直接使用该URL来绘制图片。
+
+如：
+::
+    .. image:: https://github.com/corkami/pics/raw/master/tracing/ocean.png
+        :align: center
+        :width: 236px
+        :height: 100px
+
+渲染后结果如下：
+
+.. image:: https://github.com/corkami/pics/raw/master/tracing/ocean.png
+    :align: center
+    :width: 236px
+    :height: 100px
+
+尾注
 ^^^^^^^^^^^^^
+尾注和链接用法类似. 源代码中尾注内容可以放在任何位置, 但是引用尾注处必须使用空格与其他文本分。
+
+使用 ``[#name]_`` 标记脚注位置，并在 “Footnotes ” 标题后添加脚注主体在文档底部
+
+使用 ``[#]`` 自动编号. 或者使用 ``[#name]`` 为特定尾注命名。
+
+如：
+
+.. code-block:: c
+    
+    尾注 [#]_
+    .. [#] 或叫脚注， footnote. 
+
+渲染后效果如下：
+    
+    尾注 [#]_
+
+    .. [#] 或叫脚注， footnote.
+
 
 数学公式
 ^^^^^^^^^^^^
+reStructuredText 的数学公式书写通过指令（Directives） ``:math`` 完成。如需网页上显示的话，则和其它所有标记语言一样需要引入 MathJax 或 KaTex js 库。
+
+如：
+
+::
+
+    .. math::
+    
+        \alpha _t(i) = P(O_1, O_2, \ldots  O_t, q_t = S_i \lambda )
+
+渲染后效果如下：
+
+.. math::
+    
+    \alpha _t(i) = P(O_1, O_2, \ldots  O_t, q_t = S_i \lambda )
+
+行内数学公式则是通过 math role 实现的：
+
+如：
+
+::
+
+    该圆的面积为 :math:`A_\text{c} = (\pi/4) d^2`.
+
+渲染后效果如下：
+
+    该圆的面积为 :math:`A_\text{c} = (\pi/4) d^2`.
+
+.. note::
+
+    使用数学公式时，需要使用 sphinx.ext.mathjax 库
 
 引文
 ^^^^^^^^^^^^
 
-评论
+如果给脚注指定标签，则被解析为引文（Citations）：
+
+如：
+
+::
+    
+    请参阅 [文档001]_
+
+    .. [文档001] `从Markdown到restructuredtext <https://macplay.github.io/posts/cong-markdown-dao-restructuredtext>`_
+
+渲染后效果如下：
+
+    请参阅 [文档001]_
+
+    .. [文档001] `从Markdown到restructuredtext <https://macplay.github.io/posts/cong-markdown-dao-restructuredtext>`_
+
+
+注释
 ^^^^^^^^^^^
 
-批注
-^^^^^^^^^^^^
+每个显式标记块都不是有效的标记结构，它被视为注释。
 
+以 ``.. + 空格`` 开始，其后的数据不渲染在页面上，您可以在注释后开始后缩进文本以形成多行注释。
+
+如：
+
+::
+    
+    注释测试开始
+
+    ..
+        多行注释1
+        多行注释2
+
+    .. 单行注释
+    注释测试结束
+
+其渲染效果如下：
+
+
+    注释测试开始
+
+    ..
+        多行注释1
+        多行注释2
+
+    .. 单行注释
+    注释测试结束
 
 指令
 -----------------
+
+指令（Directives）作为 reStructuredText 语言的一种扩展机制，允许快速添加新的文档结构而无需对底层语法进行更改。reStructuredText 开箱已经内置了一批常用指令，上文中使用的 raw 和 code 其实就是指令。指令的重要功能之一是可以添加选项以控制解析器对该元素的渲染方式，譬如让图片以两倍高宽居中进行展示：
