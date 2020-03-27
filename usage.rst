@@ -216,6 +216,27 @@ Makefile/make.bat
     usage
     reference
 
+使用plantuml绘制流程图
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+使用 `.. uml::` 来使用uml图如，
+
+如：
+
+::
+
+    .. uml::
+        
+        a->b: a=>b
+        b->a: b=>a
+
+
+生成的图形如下：
+
+.. uml::
+
+    a->b: a=>b
+    b->a: b=>a
 
 引用源文件
 ^^^^^^^^^^^^^^^^^^^^^
@@ -229,5 +250,7 @@ test.h
 test.java
 """""""""""""
 .. doxygenfile:: test.java
+
+
 
 

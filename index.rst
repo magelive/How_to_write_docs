@@ -12,6 +12,7 @@ Welcome to How_to_write_docs's documentation!
     
    intro
    usage
+   reStructuredtext
    reference
 
 
