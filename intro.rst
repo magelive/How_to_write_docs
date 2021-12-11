@@ -234,3 +234,37 @@ Graphviz安装方式可查看其官网 https://www.graphviz.org/download/
     需要注意的是plantuml在官网中说道，plantuml使用Graphviz 2.39和2.40无法很好的工作，因此推荐使用Graphviz 2.38版本。
 
 
+markdown 支持安装
+^^^^^^^^^^^^^^^^^^^^^^^^^
+::
+
+    pip install --upgrade myst-parser
+
+
+myst-parser 配置
+"""""""""""""""""""""
+
+:: 
+
+    vi conf.py
+
+在conf.py中extensions中添加myst_parser支持
+
+::
+    
+    extensions = ['xxx', 'xxxx', 'myst_parser']
+
+同时如果有需要的话，可以添加相应后缀的解析:
+
+::
+
+    source_suffix = {
+        '.rst': 'restructuredtext',
+        '.txt': 'markdown',
+        '.md': 'markdown',
+        '.xx': 'xxxxxx'
+    }
+
+.. note::
+     
+    MyST-Parser requires Sphinx 2.1 or newer.

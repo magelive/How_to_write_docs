@@ -13,8 +13,9 @@ Welcome to How_to_write_docs's documentation!
    intro
    usage
    reStructuredtext
+   vscode_rst
+   sphinx_makrdown_plantuml
    reference
-
 
 Indices and tables
 ==================

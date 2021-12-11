@@ -16,6 +16,12 @@
 
 [欢迎来到 reStructureText 的世界](https://learn-rst.readthedocs.io/zh_CN/latest/#)
 
+[reStructuredText标记规范](https://docutils-zh-cn.readthedocs.io/zh_CN/latest/ref/rst/restructuredtext.html)
+
 [使用Sphinx + reST编写文档](https://blog.csdn.net/dengdi8115/article/details/102077973)
 
 [sphinx 扩展](https://www.osgeo.cn/sphinx/usage/extensions/)
+
+[markdown](https://www.sphinx-doc.org/en/master/usage/markdown.html)
+
+[\[野火\]sphinx文档规范与模版](https://ebf-contribute-guide.readthedocs.io/zh_CN/latest/index.html)

@@ -36,12 +36,13 @@ extensions = [
         'sphinx.ext.autodoc',
         'breathe',
         'sphinxcontrib.plantuml',
-        'sphinx_markdown_tables'
+        'sphinx_markdown_tables',
+        'myst_parser'
 ]
 
 from recommonmark.parser import CommonMarkParser
 source_parsers = {
-        '.md': CommonMarkParser
+#        '.md': CommonMarkParser
         }
 
 source_suffix = ['.rst', '.md']
@@ -73,4 +74,17 @@ breathe_projects = {"Test": "./_build/xml"}
 breathe_default_project = "Test"
 breathe_domain_by_extension = {"h" : "c"}
 
-
+#myst_enable_extensions = [
+#    "amsmath",
+#    "colon_fence",
+#    "deflist",
+#    "dollarmath",
+#    "fieldlist",
+#    "html_admonition",
+#    "html_image",
+#    "linkify",
+#    "replacements",
+#    "smartquotes",
+#    "substitution",
+#    "tasklist",
+#]
