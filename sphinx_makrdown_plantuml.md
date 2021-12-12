@@ -62,6 +62,35 @@ a1->b1
 b1->c1
 ```
 
+其详细patch如下：
+```txt
+diff -Naur a/docutils_renderer.py b/docutils_renderer.py
+--- a/docutils_renderer.py	2021-12-12 02:34:00.392720842 +0800
++++ b/docutils_renderer.py	2021-12-12 02:29:59.366903990 +0800
+@@ -459,6 +459,7 @@
+             not self.config.get("commonmark_only", False)
+             and language.startswith("{")
+             and language.endswith("}")
++            or language == "plantuml"
+         ):
+             return self.render_directive(token)
+ 
+@@ -984,7 +985,11 @@
+     def render_directive(self, token: SyntaxTreeNode) -> None:
+         """Render special fenced code blocks as directives."""
+         first_line = token.info.split(maxsplit=1)
+-        name = first_line[0][1:-1]
++        
++        if (first_line[0] == "plantuml" or first_line[0] == "{plantuml}" or first_line[0] == "uml"):
++            name = "uml"
++        else:
++            name = first_line[0][1:-1]
+         arguments = "" if len(first_line) == 1 else first_line[1]
+         content = token.content
+         position = token_line(token)
+
+```
+
 
 命令行下mardown文件手动生成html
 
