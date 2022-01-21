@@ -20,3 +20,8 @@ help:
 	@echo $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@doxygen Doxyfile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+pdf:
+	$(SPHINXBUILD) -b pdf $(SOURCEDIR) $(BUILDDIR)/pdf
+	@echo
+	@echo "Build finished. The PDF files are in _build/pdf."
